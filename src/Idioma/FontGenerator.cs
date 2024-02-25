@@ -11,7 +11,7 @@ namespace Idioma
 {
     internal class FontGenerator
     {
-        public static void GenerateSpriteSheetFontThing(string FontFamily, string FileName, int FontSize = 72, int TopOffset = 4, int RightOffset = -4, string GenericChar = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|} ¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏÐÑÒÓÔÕÖ×ØÙÚÛÜÝÞßàáâãäåæçèéêëìíîïðñòóôõö÷øùúûüýþÿ")
+        public static void GenerateSpriteSheetFontThing(string FontFamily, string FileName, int FontSize = 72, int TopOffset = 4, int RightOffset = -4, string GenericChar = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|} ¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿ẦầẤấẪẫẰằẴẵẲẳẮắẺẻẾếỀềỄễỈỉỎỏỐốỒồỖỗỞởỶỷỦủĐđĂăĨĩŨũỔổÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚÝàáâãèéêìíòóôõùúýẠạẢảẨẩẬậẶặẸẹẼẽỂểỆệỊịỌọỘộỚớỜờỠỡỢợỤụƯưỨứỪừỬửỮữỰựỲỳỴỵỸỹƠơ")
         {
             //Setup a bitmap image
             using (Bitmap sheet = new Bitmap(1024, 2048))
@@ -22,7 +22,7 @@ namespace Idioma
                     //Set transparent BG
                     graphics.Clear(Color.FromArgb(0, 0, 0, 0));
                     //A list of positions
-                    Dictionary<short, RectangleF> CharsAndPositions = new Dictionary<short, RectangleF>();
+                    Dictionary<ushort, RectangleF> CharsAndPositions = new Dictionary<ushort, RectangleF>();
                     //Setup font
                     using (Font font = new Font(FontFamily, FontSize, System.Drawing.FontStyle.Regular, GraphicsUnit.Point))
                     {
@@ -34,7 +34,7 @@ namespace Idioma
                         {
                             //95x125
                             SizeF SizeOfChar = graphics.MeasureString(c.ToString(), font);
-                            short CharASCII = BitConverter.ToInt16(Encoding.Unicode.GetBytes(c.ToString()), 0);
+                            ushort CharASCII = BitConverter.ToUInt16(Encoding.Unicode.GetBytes(c.ToString()), 0);
                             if ((X + SizeOfChar.Width + 4) > 1024)
                             {
                                 Y += 126;
@@ -68,10 +68,10 @@ namespace Idioma
                                 //Write charactor code l,t,r,b
                                 writeFile.Write((short)required);
                                 //Check
-                                if (CharsAndPositions.ContainsKey(Convert.ToByte(required)))
+                                if (CharsAndPositions.ContainsKey(Convert.ToUInt16(required)))
                                 {
                                     //We have a position
-                                    RectangleF Position = CharsAndPositions[Convert.ToByte(required)];
+                                    RectangleF Position = CharsAndPositions[Convert.ToUInt16(required)];
                                     //Write margin
                                     writeFile.Write((sbyte)0);
                                     //Calculate width and height
@@ -140,10 +140,10 @@ namespace Idioma
                                 //Write charactor code l,t,r,b
                                 writeFile.Write((short)required);
                                 //Check
-                                if (CharsAndPositions.ContainsKey(Convert.ToByte(required)))
+                                if (CharsAndPositions.ContainsKey(Convert.ToUInt16(required)))
                                 {
                                     //We have a position
-                                    RectangleF Position = CharsAndPositions[Convert.ToByte(required)];
+                                    RectangleF Position = CharsAndPositions[Convert.ToUInt16(required)];
                                     //Write margin
                                     writeFile.Write((sbyte)0);
                                     //Calculate width and height
@@ -212,10 +212,10 @@ namespace Idioma
                                 //Write charactor code l,t,r,b
                                 writeFile.Write((short)required);
                                 //Check
-                                if (CharsAndPositions.ContainsKey(Convert.ToByte(required)))
+                                if (CharsAndPositions.ContainsKey(Convert.ToUInt16(required)))
                                 {
                                     //We have a position
-                                    RectangleF Position = CharsAndPositions[Convert.ToByte(required)];
+                                    RectangleF Position = CharsAndPositions[Convert.ToUInt16(required)];
                                     //Write margin
                                     writeFile.Write((sbyte)0);
                                     //Calculate width and height
@@ -284,10 +284,10 @@ namespace Idioma
                                 //Write charactor code l,t,r,b
                                 writeFile.Write((short)required);
                                 //Check
-                                if (CharsAndPositions.ContainsKey(Convert.ToByte(required)))
+                                if (CharsAndPositions.ContainsKey(Convert.ToUInt16(required)))
                                 {
                                     //We have a position
-                                    RectangleF Position = CharsAndPositions[Convert.ToByte(required)];
+                                    RectangleF Position = CharsAndPositions[Convert.ToUInt16(required)];
                                     //Write margin
                                     writeFile.Write((sbyte)0);
                                     //Calculate width and height
@@ -356,10 +356,10 @@ namespace Idioma
                                 //Write charactor code l,t,r,b
                                 writeFile.Write((short)required);
                                 //Check
-                                if (CharsAndPositions.ContainsKey(Convert.ToByte(required)))
+                                if (CharsAndPositions.ContainsKey(Convert.ToUInt16(required)))
                                 {
                                     //We have a position
-                                    RectangleF Position = CharsAndPositions[Convert.ToByte(required)];
+                                    RectangleF Position = CharsAndPositions[Convert.ToUInt16(required)];
                                     //Write margin
                                     writeFile.Write((sbyte)0);
                                     //Calculate width and height
@@ -428,10 +428,10 @@ namespace Idioma
                                 //Write charactor code l,t,r,b
                                 writeFile.Write((short)required);
                                 //Check
-                                if (CharsAndPositions.ContainsKey(Convert.ToByte(required)))
+                                if (CharsAndPositions.ContainsKey(Convert.ToUInt16(required)))
                                 {
                                     //We have a position
-                                    RectangleF Position = CharsAndPositions[Convert.ToByte(required)];
+                                    RectangleF Position = CharsAndPositions[Convert.ToUInt16(required)];
                                     //Write margin
                                     writeFile.Write((sbyte)0);
                                     //Calculate width and height
@@ -500,10 +500,10 @@ namespace Idioma
                                 //Write charactor code l,t,r,b
                                 writeFile.Write((short)required);
                                 //Check
-                                if (CharsAndPositions.ContainsKey(Convert.ToByte(required)))
+                                if (CharsAndPositions.ContainsKey(Convert.ToUInt16(required)))
                                 {
                                     //We have a position
-                                    RectangleF Position = CharsAndPositions[Convert.ToByte(required)];
+                                    RectangleF Position = CharsAndPositions[Convert.ToUInt16(required)];
                                     //Write margin
                                     writeFile.Write((sbyte)0);
                                     //Calculate width and height

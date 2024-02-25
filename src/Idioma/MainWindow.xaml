@@ -9,7 +9,7 @@
         <ComboBox x:Name="FontSelection" HorizontalAlignment="Left" IsReadOnly="True" IsEditable="False" Margin="22,47,0,0" VerticalAlignment="Top" Width="277"/>
         <TextBlock HorizontalAlignment="Left" Margin="22,28,0,0" TextWrapping="Wrap" Text="Select a font" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
         <TextBlock HorizontalAlignment="Left" Margin="22,90,0,0" TextWrapping="Wrap" Text="Scale size:" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
-        <TextBox x:Name="ScaleFontSize" HorizontalAlignment="Left" Height="23" VerticalContentAlignment="Center" Margin="89,89,0,0" TextWrapping="Wrap" Text="72" VerticalAlignment="Top" Width="70" PreviewTextInput="ScaleFontSize_PreviewTextInput"/>
+        <TextBox x:Name="ScaleFontSize" HorizontalAlignment="Left" Height="23" VerticalContentAlignment="Center" Margin="89,89,0,0" TextWrapping="Wrap" Text="36" VerticalAlignment="Top" Width="70" PreviewTextInput="ScaleFontSize_PreviewTextInput"/>
         <TextBlock HorizontalAlignment="Left" Margin="164,90,0,0" TextWrapping="Wrap" Text="72 is perfect for MOST fonts" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
         <TextBlock HorizontalAlignment="Left" Margin="22,133,0,0" TextWrapping="Wrap" Text="Top offset:" VerticalAlignment="Top" Foreground="White" FontSize="14"/>
         <TextBox x:Name="TopOffsetSize" HorizontalAlignment="Left" Height="23" VerticalContentAlignment="Center" Margin="102,132,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Width="70" PreviewTextInput="ScaleFontSize_PreviewTextInput"/>
